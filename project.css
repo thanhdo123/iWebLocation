@@ -1,0 +1,51 @@
+body
+{
+	background: #E0E0E0; 
+}
+#wrapper{
+	width: 986px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 5px;
+}
+
+.none_display_class {
+    display: none;
+}
+
+ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+	text-align:center;
+}
+
+li {
+	display: inline;
+	margin-left:50px;
+	margin-right:50px;
+}
+
+#content{
+	margin-top: 50px;	
+}
+
+footer{
+	margin: 50px;
+	text-align:center;
+}
+
