@@ -104,7 +104,7 @@
                     	<td>
                         </td>                        
                         <td>
-                        	<input type="checkbox" name="admin" id="admin" value="admin"/>Admin
+                        	<input type="checkbox" name="admin" id="admin" value="admin"/>Log in as administrator?
                         </td>					
 					</tr>
 					

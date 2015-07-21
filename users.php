@@ -28,9 +28,30 @@
 			<?php include "menu.php"; ?>
 		</nav>
 		<section id="content">
+			<?php
+			$stmt = $conn->prepare("SELECT * FROM users where Status = 1");
 			
-			USERS
-            	
+			//execute the SQL query and return records
+			$stmt->execute();
+			$resultrs = $stmt->get_result();
+			$index = 0;
+			while($row=mysqli_fetch_assoc($resultrs)){
+				?>
+					<div class="user">
+						<div class="user_img">
+							<a href="user_location.php?id=<?php echo $row['ID']?>"><img src="<?php echo $row['MobileType'].'.png'?>"/></a>
+						</div>
+						<div class="user_info">
+							<a href="user_location.php?id=<?php echo $row['ID']?>"><?php echo $row['UserName']?></a>
+							<br/>
+							&#x260E; <?php echo $row['PhoneNumber']?>
+							<br/>
+							<a href="delete_user.php?id=<?php echo $row['ID']?>"><img src="delete.png" alt="Delete User"/></a>
+						</div>
+					</div>
+				<?php
+			}
+			?>
             <div class="clearBoth"></div>
 		</section>
 		<footer>
