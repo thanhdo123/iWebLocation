@@ -7,6 +7,26 @@
 	<meta charset="UTF-8">
 	<title>iWebLocation</title>
 	<link rel="stylesheet" type="text/css" href="project.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    
+    <!--external css-->
+   <link href="css/font-awesome.css"  rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css"  rel="stylesheet">
+    
+    <script src="js/moment.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js" ></script>
+	<style> 
+	body {
+		background: url("bg.jpg");
+		background-size: 100% 180%;
+		background-repeat: no-repeat;
+	}
+	</style>
 </head>
 <?php
 	//include config.php file
@@ -60,69 +80,36 @@
 			exit();			
 		}else{
 			//notify invalid account
-			$message  = "Sorry login Failed! Please check the user name and password.";
+			$message  = "Invalid username or password!";
 		}
 	}	
 ?>
 
-<body>
-	<div id="wrapper">
-		<header id="header">
-			<img src="banner.png" alt="banner">
-		</header>
-		<nav id="menu">
-			<?php include "menu.php"; ?>
-		</nav>
-		<section id="content">
-			<center><div style="color:red;"><?php echo $message?></div></center>
-            	<form  method="post" action="index.php">
-				<table cellpadding="20">
-                	<tr>
-                    	<td>
-                        	<label for="username">
-                            	User Name:
-                            </label>
-                        </td>
-                        
-                        <td>
-                        	<input type="text" value="<?php echo $username;?>" placeholder="ENTER YOUR USER NAME" id="username" name="username" required="required" />
-                        </td>
-                    </tr>
-					
-                	<tr>
-                    	<td>
-                        	<label for="password">
-                            	Password :
-                            </label>
-                        </td>                        
-                        <td>
-                        	<input type="password" value="" placeholder="ENTER YOUR PASSWORD" id="password" name="password" required="required" />
-                        </td>
-                    </tr>
-					
-					<tr>
-                    	<td>
-                        </td>                        
-                        <td>
-                        	<input type="checkbox" name="admin" id="admin" value="admin"/>Log in as administrator?
-                        </td>					
-					</tr>
-					
-                	<tr>                        
-                        <td>
-                        </td>                        
-                        <td>
-                        	<input type="submit" id="Submit" name="Submit" value="LOGIN" class="submitBtn" />
-                        </td>
-                    </tr>
-                    
-                </table>
-                </form>
-                <div class="clearBoth"></div>
-		</section>
-		<footer>
-			<?php include "footer.php"; ?>
-		</footer>
-	</div>
-</body>
+<body class="login-body">
+
+    <div class="container">
+
+		<form class="form-signin" action="index.php" method="post">
+        <h2 class="form-signin-heading">sign in now</h2>
+        <div class="login-wrap">
+			<div class="error"><?php echo $message?></div>
+            <input type="text" name="username" class="form-control" placeholder="User ID" autofocus>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+            <label class="checkbox">
+				<input type="checkbox" name="admin" id="admin" value="admin"> Log in as administrator
+            </label>
+            <button class="btn btn-lg btn-login btn-block" id="Submit" name="Submit" value="LOGIN" type="submit">Sign in</button>
+            <div class="registration">
+                Want to join us?
+                <a class="pull-right" href="">
+                    Email us
+                </a>
+            </div>
+        </div>
+      </form>
+	  
+    </div>
+	<script src="js/jquery.js" />
+	<script src="js/bootstrap.min.js" />
+  </body>
 </html>
