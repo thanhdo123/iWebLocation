@@ -8,11 +8,16 @@
 
 	<div class="top-nav ">
 		<ul class="nav pull-right top-menu">
+		<?php
+			if (isset($_SESSION["ID"])){ ?>
 		  <li>
 			  <input type="text" class="form-control search" placeholder="Search">
 		  </li>
-		  <!-- user login dropdown start-->
-		   <li><a href="logout.php"><i class="fa fa-key"></i> Log Out</a></li>
+		  
+				<li><a href="logout.php"><i class="fa fa-key"></i> Log Out</a></li>
+				<?php
+			}  
+		   ?>
 	  </ul>
 	</div>
 </header>

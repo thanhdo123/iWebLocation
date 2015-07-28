@@ -42,7 +42,6 @@
 						  <span>User Registration</span>
 					  </a>
 				  </li>
-				<li><a href="register.php">User Registration</a></li>
 			<?php
 			}
 		  ?>

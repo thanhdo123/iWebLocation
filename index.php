@@ -101,8 +101,8 @@
             <button class="btn btn-lg btn-login btn-block" id="Submit" name="Submit" value="LOGIN" type="submit">Sign in</button>
             <div class="registration">
                 Want to join us?
-                <a class="pull-right" href="">
-                    Email us
+                <a class="pull-right" href="register.php">
+                    Register
                 </a>
             </div>
         </div>

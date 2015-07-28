@@ -4,8 +4,23 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>iWebLocation</title>
-	<link rel="stylesheet" type="text/css" href="project.css">
+	<title>Register</title>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-reset.css" rel="stylesheet">
+	<!--external css-->
+	<link href="css/font-awesome.css" rel="stylesheet" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href="css/jquery-ui.css" rel="stylesheet" />
+	<link href="css/tasks.css" rel="stylesheet" />
+
+	<!--right slidebar-->
+	<link href="css/slidebars.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style-responsive.css" rel="stylesheet" />
+	<link href="css/jquery-ui.css" rel="stylesheet" />
 </head>
 <?php
 
@@ -62,82 +77,167 @@ if (isset($_POST['submit_reg'])){
 
 ?>
 <body>
-	<div id="wrapper">
-		<header id="header">
-			<img src="banner.png" alt="banner">
-		</header>
-		<nav id="menu">
-			<?php include "menu.php"; ?>
-		</nav>
-		<section id="content">
-			
-			<form name="newMebReg" method="post" action="register.php">
-				<table style="width: 700px; border: 0px;" cellspacing="1" cellpadding="1">
-				   <tr>
-					  <td colspan="2" style="color:red"><?php echo $error_message; ?></td>
-					</tr>
-					<tr>
-					  <td colspan="2"><strong>Registration</strong></td>
-					</tr>					
-					<tr>
-					  <td>First Name</td>
-					  <td>
-						<input name="firstname" type="text" style="width: 200px;" maxlength="100" value="<?php echo $firstname; ?>"><span style="color:red">*</span></td>
-					</tr>	
-					<tr>
-					  <td>Last Name</td>
-					  <td>
-						<input name="lastname" type="text" style="width: 200px;" maxlength="100" value="<?php echo $lastname; ?>"><span style="color:red">*</span></td>
-					</tr>
-					<tr>
-					  <td>User Name</td>
-					  <td>
-						<input name="username" type="text" style="width: 200px;" maxlength="100" value="<?php echo $username; ?>"><span style="color:red">*</span></td>
-					</tr>
-					<tr>
-					  <td>Phone Number</td>
-					  <td>
-						<input name="phonenumber" type="text" style="width: 200px;" maxlength="100" value="<?php echo $phonenumber; ?>"><span style="color:red">*</span></td>
-					</tr>					
-					<tr> 
-					  <td style="width: 583px">Password</td>&nbsp;&nbsp;
-					  <td style="width: 306px"> 
-						<input name="password" type="password" style="width: 200px;" maxlength="20"  /><span style="color:red">*</span></td> 
-					</tr>
-					<tr>
-					  <td>Confirm Password</td>
-					  <td> 
-						<input name="cpassword" type="password" style="width: 200px;" maxlength="20" /><span style="color:red">*</span></td>
-					</tr>	
-					<tr>
-					  <td>Mobile OS</td>
-					  <td>
-					    <select name="mobileos">
-						  <option value="Android" <?php echo (($mobileos == 'Android')?"selected='selected'":"")?>>Android</option>
-						  <option value="IPhone" <?php echo (($mobileos == 'IPhone')?"selected='selected'":"")?>>IPhone</option>
-						</select>
-					  <span style="color:red">*</span></td>
-					</tr>	
-					<tr>
-					 
-					  <td colspan="2"><br/>
-					  <span style="color:red">*</span> indicates required field</td>
-					</tr>
-					<tr> 
-						<td></td>
-					  <td style="width: 583px" class="auto-style2">&nbsp;
-					  <input type="submit" name="submit_reg" value="Submit" style="width: 74px" />
-					  <input type="reset" name="reset" value="Reset" style="width: 70px" /></td>
-					  <br />
-					</tr>
-				</table>					
-			</form>            	
-            <div class="clearBoth"></div>
+	<section id="container">
+		<!--header start-->
+		<?php include "header.php"; ?>
+		<!--header end-->
+		<!--sidebar start-->
+		<?php include "sidebar.php"; ?>
+		<!--sidebar end-->
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper">
+				<!-- page start-->
+				<div class="row">
+					<div class="col-md-12">
+						<section class="panel">
+							<header class="panel-heading"> Registration </header>
+							<div class="panel-body">
+								<?php
+									if ($error_message != ''){ ?>
+									<div class="alert alert-warning">
+										<a href="#" class="close" data-dismiss="alert">&times;</a>
+										<strong>Error!</strong> <?php echo $error_message; ?>
+									</div>
+								<?php
+									}  
+								   ?>
+								<form name="newMebReg" method="post" action="register.php">
+									<div class="row">
+										<div class="col-lg-10">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">First Name</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="firstname"
+																value="<?php echo $firstname; ?>"
+																placeholder="First Name"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">Last Name</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="lastname"
+																value="<?php echo $lastname; ?>"
+																placeholder="Last Name"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">User Name</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="username"
+																value="<?php echo $username; ?>"
+																placeholder="User Name"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">Phone Number</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="phonenumber"
+																value="<?php echo $phonenumber; ?>"
+																placeholder="Phone Number"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">Password</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="password"
+																class="form-control" name="password"
+																placeholder="Password"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">Confirm Password</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="password"
+																class="form-control" name="cpassword"
+																placeholder="Confirm Password"
+																required>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-10" style="margin-top:10px">
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-2 control-label">Mobile OS</label>
+												<div class="col-lg-9">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+														<select name="mobileos" class="form-control" required>
+														  <option value="">Mobile OS</option>
+														  <option value="Android" <?php echo (($mobileos == 'Android')?"selected='selected'":"")?>>Android</option>
+														  <option value="IPhone" <?php echo (($mobileos == 'IPhone')?"selected='selected'":"")?>>IPhone</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="margin-top:10px">
+										<button class="btn btn-success" type="submit">
+											<span class="glyphicon glyphicon-user"></span>Submit
+										</button>
+										<button class="btn btn-success" type="reset">
+											<span class="glyphicon glyphicon-user"></span>Reset
+										</button>
+									</div>
+								</form>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- page end-->
+			</section>
 		</section>
-		<footer>
-			<?php include "footer.php"; ?>
-		</footer>
-	</div>
+		<!--main content end-->
+	</section>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="js/jquery.scrollTo.min.js"></script>
+	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="js/respond.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<!--right slidebar-->
+	<script src="js/slidebars.min.js"></script>
+	<!--common script for all pages-->
+	<script src="js/common-scripts.js"></script>
 </body>
 </html>
 <? ob_flush(); ?>
