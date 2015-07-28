@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>iWebLocation</title>
+	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="project.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-reset.css" rel="stylesheet">
