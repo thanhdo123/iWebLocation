@@ -209,7 +209,7 @@ if (isset($_POST['submit_reg'])){
 										</div>
 									</div>
 									<div class="row" style="margin-top:10px">
-										<button class="btn btn-success" type="submit">
+										<button class="btn btn-success" type="submit" name="submit_reg" id="Submit">
 											<span class="glyphicon glyphicon-user"></span>Submit
 										</button>
 										<button class="btn btn-success" type="reset">
