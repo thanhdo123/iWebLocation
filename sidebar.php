@@ -5,13 +5,13 @@
 		  <?php
 			 if (isset($_SESSION["USER_TYPE"]) && $_SESSION["USER_TYPE"] == "admin"){ ?>	    
 				<li>
-					  <a href="user.php">
+					  <a href="users.php">
 						  <i class="fa fa-dashboard"></i>
 						  <span>Dashboard</span>
 					  </a>
 				  </li>
 				  <li class="sub-menu">
-					  <a href="Search.php">
+					  <a href="search.php">
 						  <i class="fa fa-dashboard"></i>
 						  <span>Search</span>
 					  </a>
