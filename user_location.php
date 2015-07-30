@@ -62,12 +62,6 @@
         width: 100%;
         height: 700px;
       }
-	  div {
-			margin: 20px auto;
-			text-align: center;
-			font-family: 'Helvetica Neue', sans-serif;
-		}
-
 		.label {
 			padding: 1px 3px 2px;
 			font-size: 18px;
@@ -79,6 +73,7 @@
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;
+			font-family: 'Helvetica Neue', sans-serif;
 		}
 		.label.important {
 			background-color: #c43c35;
@@ -105,12 +100,13 @@
 		<!--sidebar end-->
 		<!--main content start-->
 		<section id="main-content" align="center" style="padding-top:80px">
-			<div id="user-info" style="padding-top:15px">
+			<div id="user-info" style="margin-bottom:10px">
 				<span class="label success"><?php echo $FirstName; ?> <?php echo $LastName; ?></span>
 				<span class="label notice"><?php echo $PhoneNumber; ?></span>
 				<span class="label important"><?php echo $Os; ?></span>
 			</div>
-			<div id="map-canvas"></div>
+			<div id="map-canvas"/>
+			<div id="map-canvas"/>
 		</section>
 		<!--main content end-->
 	</section>
@@ -126,26 +122,25 @@
 	<script src="js/slidebars.min.js"></script>
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
+	<script>
+	var map;
+	function initialize() {
+		var mapOptions = {
+			zoom: 15
+		};
+		var content = '<?php echo $FirstName?>' + ' ' + '<?php echo $LastName?>' + '<br/>' + '&#x260E; <?php echo $PhoneNumber?>';
+		map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
+		var options = {
+			map: map,
+			position: new google.maps.LatLng(<?php echo $Latitude?>, <?php echo $Longitude?>),
+			content: content
+		};
+
+		var infowindow = new google.maps.InfoWindow(options);
+		map.setCenter(options.position);
+		
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 </body>
 </html>
-
-<script>
-var map;
-function initialize() {
-	var mapOptions = {
-		zoom: 15
-	};
-	var content = '<?php echo $FirstName?>' + ' ' + '<?php echo $LastName?>' + '<br/>' + '&#x260E; <?php echo $PhoneNumber?>';
-	map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
-	var options = {
-		map: map,
-		position: new google.maps.LatLng(<?php echo $Latitude?>, <?php echo $Longitude?>),
-		content: content
-	};
-
-	var infowindow = new google.maps.InfoWindow(options);
-	map.setCenter(options.position);
-	
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
