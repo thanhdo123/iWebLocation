@@ -32,6 +32,15 @@
 <?php
 	//include config.php file
     require_once('config.php');
+	
+	$phonenumber = "";
+	$name = "";
+	
+	//if submit is clicked
+	if(isset($_POST['SearchSubmit'])){
+		$name = strip_tags(@$_POST['name']);
+		$phonenumber = strip_tags(@$_POST['phonenumber']);		
+	}
 ?>
 
 <body>
@@ -43,11 +52,61 @@
 		<?php include "sidebar.php"; ?>
 		<!--sidebar end-->
 		<!--main content start-->
-		<section id="main-content" align="center" style="padding-top:100px">
+		<section id="main-content" align="center">
+			<section class="wrapper" align="left">
+				<!-- page start-->
+				<div class="row">
+					<div class="col-md-12">
+						<section class="panel">
+							<header class="panel-heading"> Additional Filters </header>
+							<div class="panel-body">
+								<form name="searchForm" method="post" action="users.php">
+									<div class="row">
+										<div class="col-lg-4">
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-3 control-label">Name</label>
+												<div class="col-lg-7">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="name"
+																value="<?php echo $name; ?>"
+																placeholder="Name">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4">
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-3 control-label">Phone Number</label>
+												<div class="col-lg-7">
+													<div class="iconic-input">
+														<i class="fa fa-bullhorn"></i> 
+															<input type="text"
+																class="form-control" name="phonenumber"
+																value="<?php echo $phonenumber; ?>"
+																placeholder="Phone Number">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-1">
+											<button class="btn btn-success" type="submit" name="SearchSubmit" id="Submit">
+												<span class="glyphicon glyphicon-user"></span>Search
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+			
 			<div class="row">
 				
 			<?php
-			$stmt = $conn->prepare("SELECT * FROM users where Status = 1");
+			$stmt = $conn->prepare("SELECT * FROM users where Status = 1 and (firstname like '%".$name."%' or lastname like '%".$name."%') and PhoneNumber like '%".$phonenumber."%'");
 			
 			//execute the SQL query and return records
 			$stmt->execute();
@@ -60,7 +119,7 @@
 							<a href="user_location.php?id=<?php echo $row['ID']?>"><img src="<?php echo $row['MobileType'].'.png'?>"/></a>
 						</div>
 						<div class="col-sm-6" align="left">
-							<a href="user_location.php?id=<?php echo $row['ID']?>"><h3><?php echo $row['UserName']?></h3></a>
+							<a href="user_location.php?id=<?php echo $row['ID']?>"><h3><?php echo $row['FirstName']?> <?php echo $row['LastName']?></h3></a>
 							<br/>
 							&#x260E; <?php echo $row['PhoneNumber']?>
 							<br/>

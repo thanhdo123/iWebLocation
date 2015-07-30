@@ -9,11 +9,7 @@
 	<div class="top-nav ">
 		<ul class="nav pull-right top-menu">
 		<?php
-			if (isset($_SESSION["ID"])){ ?>
-		  <li>
-			  <input type="text" class="form-control search" placeholder="Search">
-		  </li>
-		  
+			if (isset($_SESSION["ID"])){ ?> 
 				<li><a href="logout.php"><i class="fa fa-key"></i> Log Out</a></li>
 				<?php
 			}  

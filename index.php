@@ -107,7 +107,6 @@
             </div>
         </div>
       </form>
-	  
     </div>
 	<script src="js/jquery.js" />
 	<script src="js/bootstrap.min.js" />
