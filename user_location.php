@@ -18,6 +18,7 @@
 	$FirstName = "";
 	$LastName = "";
 	$PhoneNumber = "";
+	$Os = "";
 	$stmt = $conn->prepare("SELECT * FROM users where Status = 1 and ID = ".$_GET['id']);
 	
 	//execute the SQL query and return records
@@ -31,6 +32,7 @@
 		$FirstName = $row['FirstName'];
 		$LastName =  $row['LastName'];
 		$PhoneNumber = $row['PhoneNumber'];
+		$Os = $row['MobileType'];
 	}
 	?>
 <!DOCTYPE html>
@@ -60,6 +62,36 @@
         width: 100%;
         height: 700px;
       }
+	  div {
+			margin: 20px auto;
+			text-align: center;
+			font-family: 'Helvetica Neue', sans-serif;
+		}
+
+		.label {
+			padding: 1px 3px 2px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #ffffff;
+			text-transform: uppercase;
+			white-space: nowrap;
+			background-color: #bfbfbf;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+		}
+		.label.important {
+			background-color: #c43c35;
+		}
+		.label.warning {
+			background-color: #f89406;
+		}
+		.label.success {
+			background-color: #46a546;
+		}
+		.label.notice {
+			background-color: #62cffc;
+		}
     </style>
 </head>
 
@@ -73,8 +105,10 @@
 		<!--sidebar end-->
 		<!--main content start-->
 		<section id="main-content" align="center" style="padding-top:80px">
-			<div id="user-info">
-				<h3>afafa</h3>
+			<div id="user-info" style="padding-top:15px">
+				<span class="label success"><?php echo $FirstName; ?> <?php echo $LastName; ?></span>
+				<span class="label notice"><?php echo $PhoneNumber; ?></span>
+				<span class="label important"><?php echo $Os; ?></span>
 			</div>
 			<div id="map-canvas"></div>
 		</section>
